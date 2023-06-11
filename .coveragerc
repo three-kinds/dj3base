@@ -1,0 +1,8 @@
+[run]
+source =
+    dj3base
+
+[report]
+exclude_lines =
+    raise NotImplementedError
+    raise AssertionError
