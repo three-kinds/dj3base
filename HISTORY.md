@@ -1,5 +1,10 @@
 # History
 
+## 0.1.2
+
+1. add model_utils
+2. add field_utils
+
 ## 0.1.1
 
 1. add commands.SingletonCommand
