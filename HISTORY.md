@@ -4,6 +4,7 @@
 
 1. add model_utils
 2. add field_utils
+3. add admin_utils
 
 ## 0.1.1
 
