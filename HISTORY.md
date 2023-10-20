@@ -2,9 +2,10 @@
 
 ## 0.1.2
 
-1. add model_utils
-2. add field_utils
-3. add admin_utils
+1. add models
+2. add fields
+3. add admin
+4. add request
 
 ## 0.1.1
 
