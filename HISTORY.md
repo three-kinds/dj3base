@@ -1,5 +1,9 @@
 # History
 
+## 0.1.3
+
+1. add ReadonlyModelAdmin
+
 ## 0.1.2
 
 1. add models
