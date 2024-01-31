@@ -1,5 +1,10 @@
 # History
 
+## 0.1.4
+
+1. add exceptions
+2. add views
+
 ## 0.1.3
 
 1. add ReadonlyModelAdmin
