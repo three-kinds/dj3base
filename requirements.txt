@@ -1,4 +1,5 @@
 tendo
+a3json_struct==0.2.1
 
 # 测试与维护
 django
