@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from typing import Optional
 from datetime import datetime, timedelta
 from django.conf import settings
 from django.contrib.auth.forms import AuthenticationForm
@@ -23,7 +24,7 @@ class RateLimitLoginForm(AuthenticationForm):
 
         # 检测IP异常数是否达到上限，如果受限，直接抛出相关异常
         ip = get_ip(self.request)
-        error_info = self.ip2error_info.get(ip, None)
+        error_info: Optional[dict] = self.ip2error_info.get(ip, None)
         if error_info is not None and error_info['count'] >= self.throttle_per_hour:
             raise ValidationError(
                 "登录的次数已达上限，近期无法再登录！",

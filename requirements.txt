@@ -1,5 +1,6 @@
 tendo
-a3json_struct==0.2.1
+a3exception >= 0.1.1
+a3json_struct >= 0.2.1
 
 # 测试与维护
 django

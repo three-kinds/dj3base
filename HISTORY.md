@@ -1,5 +1,10 @@
 # History
 
+## 0.1.5
+
+1. remove exceptions
+2. add others/email_utils
+
 ## 0.1.4
 
 1. add exceptions

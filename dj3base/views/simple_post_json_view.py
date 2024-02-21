@@ -6,7 +6,7 @@ import inspect
 
 from django.views.generic import View
 from django.http import FileResponse
-from dj3base.exceptions.errors import ServerKnownError, ValidationError
+from a3exception.errors import ServerKnownError, ValidationError
 from dj3base.views.utils import build_success_response
 from a3json_struct.struct import JsonStruct
 from a3json_struct.errors import ValidationError as StructValidationError

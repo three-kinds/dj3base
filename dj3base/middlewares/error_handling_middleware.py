@@ -7,7 +7,7 @@ from django.utils.deprecation import MiddlewareMixin
 from django.http import JsonResponse
 
 from dj3base import request as ru
-from dj3base.exceptions.errors import Error, ErrorType, ServerUnknownError
+from a3exception.errors import Error, ErrorType, ServerUnknownError
 
 
 def build_error_response(e: Error) -> JsonResponse:
