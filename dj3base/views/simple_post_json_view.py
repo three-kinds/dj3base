@@ -21,6 +21,9 @@ class SimplePostJsonView(View):
         except Exception as e:
             raise ValidationError(f"请求体不是合法的json", cause=str(e))
 
+    def validate_request_permission(self):
+        pass
+
     def validate_request_struct(self) -> Optional[JsonStruct]:
         request_struct = None
 
@@ -35,6 +38,7 @@ class SimplePostJsonView(View):
         return request_struct
 
     def post(self, *_, **__):
+        self.validate_request_permission()
         request_struct = self.validate_request_struct()
         custom_params = self.custom_validate(request_struct)
 

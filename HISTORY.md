@@ -1,5 +1,9 @@
 # History
 
+## 0.1.6
+
+1. add SimplePostJsonView.validate_request_permission
+
 ## 0.1.5
 
 1. remove exceptions
