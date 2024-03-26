@@ -1,5 +1,9 @@
 # History
 
+## 0.1.7
+
+1. standardize the naming
+
 ## 0.1.6
 
 1. add SimplePostJsonView.validate_request_permission

@@ -17,7 +17,7 @@ def build_error_response(e: Error) -> JsonResponse:
 
     rd = {
         'status': e.status,
-        'error_message': e.message
+        'message': e.message
     }
     if e.detail is not None:
         rd['detail'] = e.detail
