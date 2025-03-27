@@ -1,12 +1,10 @@
 # dj3base
 
-Django utils.
-
-[History.](HISTORY.md)
+`dj3base` contains some small tools for `Django`.
 
 ## Install
 
-```shell script
+```shell
 pip install dj3base
 
 ```
