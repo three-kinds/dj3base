@@ -4,20 +4,20 @@ from django.http import HttpRequest
 
 
 def get_ip(request: HttpRequest) -> str:
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
     if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0]
+        ip = x_forwarded_for.split(",")[0]
     else:
-        ip = request.META.get('REMOTE_ADDR')
+        ip = request.META.get("REMOTE_ADDR")
     return ip
 
 
 def get_user_agent(request: HttpRequest) -> str:
-    return request.META.get('HTTP_USER_AGENT', '')[:256]
+    return request.META.get("HTTP_USER_AGENT", "")[:256]
 
 
 def get_referer(request: HttpRequest) -> str:
-    return request.META.get('HTTP_REFERER')
+    return request.META.get("HTTP_REFERER")
 
 
 def get_full_url(request: HttpRequest) -> str:
@@ -29,7 +29,7 @@ def get_url_path(request: HttpRequest) -> str:
 
 
 def get_host(request: HttpRequest) -> str:
-    return '{}://{}'.format(request.scheme, request.META['HTTP_HOST'])
+    return "{}://{}".format(request.scheme, request.META["HTTP_HOST"])
 
 
 def get_form_data(request: HttpRequest) -> dict:
@@ -41,8 +41,8 @@ def get_json_data(request: HttpRequest) -> dict:
 
 
 class RequestContentType:
-    FormData = 'multipart/form-data'
-    Json = 'application/json'
+    FormData = "multipart/form-data"
+    Json = "application/json"
 
 
 def get_request_data(request: HttpRequest) -> dict:

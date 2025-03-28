@@ -2,7 +2,6 @@ from django.contrib import admin
 
 
 class ReadonlyModelAdmin(admin.ModelAdmin):
-
     def has_add_permission(self, request):
         return False
 

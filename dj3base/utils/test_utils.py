@@ -2,7 +2,7 @@
 import sys
 
 
-_IS_UNIT_TESTING = sys.argv[1:2] == ['test']
+_IS_UNIT_TESTING = sys.argv[1:2] == ["test"]
 
 
 def is_unit_testing() -> bool:

@@ -11,7 +11,7 @@ class OrderedAdminSite(AdminSite):
         super().__init__(*args, **kwargs)
         self._ordered_apps = dict()
         for app_config, info in self.ordered_apps.items():
-            app_label = app_config.name.split('.')[-1]
+            app_label = app_config.name.split(".")[-1]
             self._ordered_apps[app_label] = info
 
     def get_app_list(self, request, app_label=None):
@@ -19,11 +19,11 @@ class OrderedAdminSite(AdminSite):
         for label, app_info in app_dict.items():
             app_index_info = self._ordered_apps.get(label, None)
             if app_index_info is not None:
-                app_info['index'] = app_index_info['index']
-                for model_info in app_info['models']:
-                    model_index_info = app_index_info['models'].get(model_info['model'], None)
+                app_info["index"] = app_index_info["index"]
+                for model_info in app_info["models"]:
+                    model_index_info = app_index_info["models"].get(model_info["model"], None)
                     if model_index_info is not None:
-                        model_info['index'] = model_index_info['index']
+                        model_info["index"] = model_index_info["index"]
 
         app_list = sorted(app_dict.values(), key=lambda x: x.get("index", _DEFAULT_INDEX))
 

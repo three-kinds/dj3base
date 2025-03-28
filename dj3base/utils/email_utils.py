@@ -12,11 +12,11 @@ def render_template(template_file_path: str, context_dict: dict):
 
 
 def send_html_email(
-        subject: str,
-        html_message: str,
-        recipient_list: List[str],
-        cc_list: List[str] = None,
-        attach_filename_list: List[str] = None
+    subject: str,
+    html_message: str,
+    recipient_list: List[str],
+    cc_list: List[str] = None,
+    attach_filename_list: List[str] = None,
 ):
     email = EmailMessage(
         subject=subject,
@@ -24,7 +24,7 @@ def send_html_email(
         to=recipient_list,
         cc=cc_list,
     )
-    email.content_subtype = 'html'
+    email.content_subtype = "html"
     if attach_filename_list not in [None, []]:
         for filename in attach_filename_list:
             email.attach_file(filename)

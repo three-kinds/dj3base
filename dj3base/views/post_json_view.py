@@ -28,7 +28,7 @@ class PostJsonView(View):
     def validate_request_struct(self) -> Optional[JsonStruct]:
         request_struct = None
 
-        request_struct_cls = getattr(self,'request_struct_cls', None)
+        request_struct_cls = getattr(self, "request_struct_cls", None)
         if request_struct_cls is not None and inspect.isclass(request_struct_cls):
             data = self._get_request_json_data()
             request_struct = request_struct_cls(**data)
