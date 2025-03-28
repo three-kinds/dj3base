@@ -6,20 +6,21 @@ import inspect
 
 from django.views.generic import View
 from django.http import FileResponse
+from django.utils.translation import gettext_lazy as _
 from a3exception.errors import ServerKnownError, ValidationError
-from dj3base.views.utils import build_success_response
+from dj3base.utils.response_utils import build_success_response
 from a3json_struct.struct import JsonStruct
 from a3json_struct.errors import ValidationError as StructValidationError
 
 
-class SimplePostJsonView(View):
-    request_struct_cls: Type[JsonStruct] = None
+class PostJsonView(View):
+    request_struct_cls: Type[JsonStruct]
 
     def _get_request_json_data(self) -> dict:
         try:
             return json.loads(self.request.body)
         except Exception as e:
-            raise ValidationError(f"请求体不是合法的json", cause=str(e))
+            raise ValidationError(_("The request body is not a valid JSON."), cause=str(e))
 
     def validate_request_permission(self):
         pass
@@ -27,9 +28,10 @@ class SimplePostJsonView(View):
     def validate_request_struct(self) -> Optional[JsonStruct]:
         request_struct = None
 
-        if self.request_struct_cls is not None and inspect.isclass(self.request_struct_cls):
+        request_struct_cls = getattr(self,'request_struct_cls', None)
+        if request_struct_cls is not None and inspect.isclass(request_struct_cls):
             data = self._get_request_json_data()
-            request_struct = self.request_struct_cls(**data)
+            request_struct = request_struct_cls(**data)
             try:
                 request_struct.full_clean()
             except StructValidationError as e:
@@ -50,7 +52,7 @@ class SimplePostJsonView(View):
         elif isinstance(result, FileResponse):
             return result
         else:
-            raise ServerKnownError(cause=f"handle_post返回值类型未知: {type(result).__name__}")
+            raise ServerKnownError(cause=f"The return type of handle_post is unknown: {type(result).__name__}")
 
     def custom_validate(self, request_struct) -> Any:
         pass
