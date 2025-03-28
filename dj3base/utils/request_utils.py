@@ -50,3 +50,5 @@ def get_request_data(request: HttpRequest) -> dict:
         return get_form_data(request)
     elif request.content_type == RequestContentType.Json:
         return get_json_data(request)
+    else:
+        return {"content_type": request.content_type, "data": "Not supported."}

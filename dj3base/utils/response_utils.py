@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
+from typing import Dict, Any
+
 from django.conf import settings
 from django.http import JsonResponse
 from a3exception.errors import Error, ErrorType
 
 
-def build_success_response(data: dict = None):
-    success_result = {"status": "OK"}
+def build_success_response(data: dict | None = None):
+    success_result: Dict[str, Any] = {"status": "OK"}
 
     if data is not None:
         success_result["data"] = data

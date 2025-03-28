@@ -15,8 +15,8 @@ def send_html_email(
     subject: str,
     html_message: str,
     recipient_list: List[str],
-    cc_list: List[str] = None,
-    attach_filename_list: List[str] = None,
+    cc_list: List[str] | None = None,
+    attach_filename_list: List[str] | None = None,
 ):
     email = EmailMessage(
         subject=subject,
@@ -25,7 +25,7 @@ def send_html_email(
         cc=cc_list,
     )
     email.content_subtype = "html"
-    if attach_filename_list not in [None, []]:
+    if isinstance(attach_filename_list, list):
         for filename in attach_filename_list:
             email.attach_file(filename)
     email.send()

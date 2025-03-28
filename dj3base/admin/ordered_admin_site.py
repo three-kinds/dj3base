@@ -1,17 +1,20 @@
+from typing import Type, Dict, Any
+
 from django.contrib.admin.sites import AdminSite
+from django.apps import AppConfig
 
 
 _DEFAULT_INDEX = 99999
 
 
 class OrderedAdminSite(AdminSite):
-    ordered_apps = dict()
+    ordered_apps: Dict[Type[AppConfig], Dict[str, Any]] = dict()
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self._ordered_apps = dict()
         for app_config, info in self.ordered_apps.items():
-            app_label = app_config.name.split(".")[-1]
+            app_label = app_config.name.split(".")[-1]  # noqa
             self._ordered_apps[app_label] = info
 
     def get_app_list(self, request, app_label=None):
