@@ -46,7 +46,6 @@ include = ["dj3base*"]
 [tool.mypy]
 packages = [
     "dj3base",
-    "tests"
 ]
 disable_error_code = [
     "import-untyped",
@@ -56,6 +55,8 @@ disable_error_code = [
 [tool.ruff]
 src = [
     "dj3base",
+]
+exclude = [
     "tests"
 ]
 line-length = 120
