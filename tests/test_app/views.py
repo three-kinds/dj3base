@@ -29,3 +29,8 @@ class FileResponseView(PostJsonView):
 class EmptyView(PostJsonView):
     def handle_post(self, request_struct: RequestStruct, custom_params: dict):
         return
+
+
+class IncorrectView(PostJsonView):
+    def handle_post(self, request_struct: RequestStruct, custom_params: dict):
+        return 123

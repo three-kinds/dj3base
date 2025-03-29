@@ -16,10 +16,11 @@ Including another URLconf
 """
 
 from django.urls import path
-from test_app.views import EchoView, FileResponseView, EmptyView
+from test_app import views
 
 urlpatterns = [
-    path("api/echo", EchoView.as_view()),
-    path("api/file", FileResponseView.as_view()),
-    path("api/empty", EmptyView.as_view()),
+    path("api/echo", views.EchoView.as_view()),
+    path("api/file", views.FileResponseView.as_view()),
+    path("api/empty", views.EmptyView.as_view()),
+    path("api/incorrect", views.IncorrectView.as_view()),
 ]
